@@ -1,6 +1,6 @@
 # RandC
  Rest and Continue 
-# Proje Adı
+# Rest and Continue
 
 Bu proje, kullanıcıların görev yönetimi ve dinlenme sürelerini takip etmelerini sağlayan bir uygulamadır.
 Bu projeyi tez çalışması olarak geliştirdim ancak tam ve daha düzgün halini geliştirip yayınlayacağım. 
