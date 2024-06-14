@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8dslrrrm2n8q"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_m6prb"]
+[ext_resource type="PackedScene" uid="uid://b73cp7d64j1cm" path="res://Assets/mascot.tscn" id="2_2hpdw"]
+[ext_resource type="Script" path="res://Canvas.gd" id="2_d5a3f"]
+
+[sub_resource type="GDScript" id="GDScript_73in4"]
+script/source = "extends CanvasLayer
+
+# Store the passthrough polygons which should be drawn
+var passthrough_polygons = []
+
+# Update the polygons to be drawn
+func update_visuals(areas: PoolVector2Array):
+	passthrough_polygons = areas
+	update()  # Request redraw
+
+func _draw():
+	var color = Color(1, 0, 0, 0.5)  # Semi-transparent red
+	for polygon in passthrough_polygons:
+		draw_polygon(polygon, PoolColorArray([color] * polygon.size()), PoolColorArray([color] * polygon.size()))
+
+# Example of how to set polygons from another script
+func _ready():
+	var example_polygon = PoolVector2Array([Vector2(100, 100), Vector2(200, 100), Vector2(200, 200), Vector2(100, 200)])
+	update_visuals(example_polygon)
+"
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_m6prb")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_d5a3f")
+
+[node name="Canvas" type="CollisionPolygon2D" parent="Area2D"]
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Mascot" parent="Node" instance=ExtResource("2_2hpdw")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = SubResource("GDScript_73in4")

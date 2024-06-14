@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bya2uec6vtrm4"]
+
+[ext_resource type="Texture2D" uid="uid://dr0y86107afyb" path="res://Sprite-0000.png" id="1_axi4i"]
+[ext_resource type="Script" path="res://ButtonTask.gd" id="2_rh7c1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a07mo"]
+atlas = ExtResource("1_axi4i")
+region = Rect2(55, 97, 34, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ji47x"]
+size = Vector2(34, 14)
+
+[node name="Sprite2D" type="Sprite2D"]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_a07mo")
+script = ExtResource("2_rh7c1")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_ji47x")

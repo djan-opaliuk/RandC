@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://ri54nftajx7k"]
+
+[ext_resource type="Script" path="res://Main.gd" id="1_7h0cb"]
+[ext_resource type="PackedScene" uid="uid://b73cp7d64j1cm" path="res://Assets/mascot.tscn" id="1_12atj"]
+[ext_resource type="PackedScene" uid="uid://cr553r84x1u2k" path="res://pomodoro.tscn" id="2_pex04"]
+[ext_resource type="PackedScene" uid="uid://darbc80jr0l2w" path="res://FishingWindow.tscn" id="3_a5184"]
+[ext_resource type="PackedScene" uid="uid://7tehqa0713my" path="res://task_manager_wİndow.tscn" id="4_7j085"]
+
+[node name="Canvas" type="Node2D"]
+script = ExtResource("1_7h0cb")
+
+[node name="Pomodoro" parent="." instance=ExtResource("2_pex04")]
+texture_filter = 1
+position = Vector2(1469, 134)
+scale = Vector2(2, 2)
+
+[node name="Mascot" parent="." instance=ExtResource("1_12atj")]
+position = Vector2(1846, 78)
+
+[node name="FishingWindow" parent="." instance=ExtResource("3_a5184")]
+texture_filter = 1
+position = Vector2(1701, 134)
+scale = Vector2(2, 2)
+
+[node name="TaskManagerWindow" parent="." instance=ExtResource("4_7j085")]
+position = Vector2(1700, 399)
+scale = Vector2(2, 2)
